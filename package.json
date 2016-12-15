@@ -1,18 +1,22 @@
 {
-  "name": "ng2-browserify",
+  "name": "ng2-boilerplate",
   "version": "1.0.0",
-  "description": "Angular 2 boilerplate using Browserify",
+  "description": "Angular 2 boilerplate",
   "scripts": {
-    "build": "browserify -t [ stringify --extensions [ .html ] ] -p [ tsify ] src/main.ts -o dist/main.js"
+    "tsc": "tsc -p tsconfig.json",
+    "rollup": "rollup -c rollup-config.js",
+    "build:prod": "npm run tsc && npm run rollup && npm run clean",
+    "clean": "rm -rf ./src/*.js*"
   },
   "dependencies": {
-    "@angular/common": "~2.2.0",
-    "@angular/compiler": "~2.2.0",
-    "@angular/core": "~2.2.0",
-    "@angular/forms": "~2.2.0",
-    "@angular/http": "~2.2.0",
-    "@angular/platform-browser": "~2.2.0",
-    "@angular/platform-browser-dynamic": "~2.2.0",
+    "@angular/common": "^2.2.4",
+    "@angular/compiler": "^2.2.4",
+    "@angular/core": "^2.2.4",
+    "@angular/forms": "^2.2.4",
+    "@angular/http": "^2.2.4",
+    "@angular/platform-browser": "^2.2.4",
+    "@angular/platform-browser-dynamic": "^2.2.4",
+    "@angular/platform-server": "^2.2.4",
     "@angular/router": "~3.2.0",
     "core-js": "^2.4.1",
     "rxjs": "5.0.0-beta.12",
@@ -21,10 +25,11 @@
   "devDependencies": {
     "@types/jasmine": "^2.5.35",
     "@types/node": "^6.0.45",
-    "browserify": "^13.1.1",
-    "stringify": "^5.1.0",
-    "tsify": "^2.0.3",
-    "typescript": "^2.0.10"
+    "rollup": "^0.36.4",
+    "rollup-plugin-commonjs": "^5.0.5",
+    "rollup-plugin-node-resolve": "^2.0.0",
+    "rollup-plugin-uglify": "^1.0.1",
+    "typescript": "^2.1.4"
   },
   "author": "Valeriu Cucu",
   "license": "ISC"
