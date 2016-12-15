@@ -1,3 +1,4 @@
 node_modules
-dist
-aot
+.dist/build.js
+.dist/shim.min.js
+.dist/zone.min.js

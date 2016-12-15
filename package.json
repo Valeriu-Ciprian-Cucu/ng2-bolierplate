@@ -3,10 +3,12 @@
   "version": "1.0.0",
   "description": "Angular 2 boilerplate",
   "scripts": {
+    "postinstall": "cp node_modules/core-js/client/shim.min.js dist && cp node_modules/zone.js/dist/zone.min.js dist",
     "tsc": "tsc -p tsconfig.json",
     "rollup": "rollup -c rollup-config.js",
-    "build:prod": "npm run tsc && npm run rollup && npm run clean",
-    "clean": "rm -rf ./src/*.js*"
+    "build": "npm run tsc && npm run rollup && npm run clean",
+    "clean": "rm -rf ./src/*.js*",
+    "start": "npm run build && cd dist && ../node_modules/.bin/http-server -o"
   },
   "dependencies": {
     "@angular/common": "^2.2.4",
@@ -25,6 +27,7 @@
   "devDependencies": {
     "@types/jasmine": "^2.5.35",
     "@types/node": "^6.0.45",
+    "http-server": "^0.9.0",
     "rollup": "^0.36.4",
     "rollup-plugin-commonjs": "^5.0.5",
     "rollup-plugin-node-resolve": "^2.0.0",
