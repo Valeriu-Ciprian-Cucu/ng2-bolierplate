@@ -1,4 +1,4 @@
 node_modules
-./dist/build.js
-./dist/shim.min.js
-./dist/zone.min.js
+dist/build.js
+dist/shim.min.js
+dist/zone.min.js
